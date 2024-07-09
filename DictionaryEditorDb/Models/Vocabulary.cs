@@ -9,8 +9,8 @@ namespace DictionaryEditorDb.Models
     public class Vocabulary
     {
         public Guid Id { get; set; }
-        public Guid WordId { get; set; }
-        public TagsValue TagsValueId { get; set; }
+        public Word Word { get; set; }
+        public TagsValue TagsValue { get; set; }
 
     }
 }

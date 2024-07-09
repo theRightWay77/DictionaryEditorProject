@@ -9,7 +9,7 @@ namespace DictionaryEditorDb.Models
     public class TagsValue
     {
         public Guid Id { get; set; }
-        public Guid TagId { get; set; }
+        public Tag Tag { get; set; }
         public string Value { get; set; }
     }
 }

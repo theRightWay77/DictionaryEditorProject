@@ -1,8 +1,14 @@
+using Microsoft.EntityFrameworkCore;
+using DictionaryEditorDb.Models;
+using DictionaryEditorDb;
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
 builder.Services.AddControllersWithViews();
 //Марат привет
+
+string connection = builder.Configuration.GetConnectionString("dictionaryProject");
+builder.Services.AddDbContext<DatabaseContext>(options => options.UseSqlServer(connection));
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

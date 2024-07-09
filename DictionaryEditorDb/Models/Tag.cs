@@ -10,5 +10,11 @@ namespace DictionaryEditorDb.Models
     {
         public Guid Id { get; set; }
         public string Value { get; set; }
+        public Tag(string value)
+        {
+            Id = Guid.NewGuid();
+            Value = value;
+        }
+
     }
 }
