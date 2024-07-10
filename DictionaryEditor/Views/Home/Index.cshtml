@@ -1,1 +1,64 @@
-﻿дае райсом хорз
+﻿
+<form>
+        <label for="word">Введите слово:</label>
+        <input type="text" id="word" name="word" required><br><br>
+
+        <label for="tag">Выберите тег:</label>
+        <select id="tag" name="tag" onchange="showTagValues()" required>
+            <option value="">--Выберите тег--</option>
+            <option value="part_of_speech">Часть речи</option>
+            <option value="gender">Род</option>
+            <option value="tense">Время</option>
+            <option value="case">Падеж</option>
+            <option value="number">Число</option>
+        </select><br><br>
+
+        <div id="tag-values" style="display: none;">
+            <label for="tag_value">Выберите значение для тега:</label>
+            <select id="tag_value" name="tag_value" required>
+                <!-- Значения будут динамически добавлены через JavaScript -->
+            </select><br><br>
+        </div>
+
+        <button type="submit">Отправить</button>
+    </form>
+<script>
+    function showTagValues() {
+        var tag = document.getElementById("tag").value;
+        var tagValuesDiv = document.getElementById("tag-values");
+        var tagValueSelect = document.getElementById("tag_value");
+
+        // Очистить предыдущие значения
+        tagValueSelect.innerHTML = "";
+
+        // Показать или скрыть div с выбором значений для тега
+        if (tag) {
+            tagValuesDiv.style.display = "block";
+        } else {
+            tagValuesDiv.style.display = "none";
+            return;
+        }
+
+        // Добавить значения для выбранного тега
+        var options = [];
+        if (tag === "part_of_speech") {
+            options = ["Существительное", "Глагол", "Прилагательное", "Наречие"];
+        } else if (tag === "gender") {
+            options = ["Мужской", "Женский", "Средний"];
+        } else if (tag === "tense") {
+            options = ["Прошлое", "Настоящее", "Будущее"];
+        } else if (tag === "case") {
+            options = ["Именительный", "Родительный", "Дательный", "Винительный", "Творительный", "Предложный"];
+        } else if (tag === "number") {
+            options = ["Единственное", "Множественное"];
+        }
+
+        // Добавить опции в select
+        for (var i = 0; i < options.length; i++) {
+            var option = document.createElement("option");
+            option.value = options[i];
+            option.text = options[i];
+            tagValueSelect.appendChild(option);
+        }
+    }
+</script>
