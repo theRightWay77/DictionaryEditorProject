@@ -1,5 +1,6 @@
 ﻿using DictionaryEditorDb.Models;
 using Microsoft.EntityFrameworkCore;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace DictionaryEditorDb
 {
@@ -9,13 +10,13 @@ namespace DictionaryEditorDb
         public DbSet<Word> Words { get; set; }
         public DbSet<Tag> Tags { get; set; }
         public DbSet<TagsValue> TagsValues { get; set; }
-        public DbSet<Vocabulary> Vocabulary { get; set; }
+        public DbSet<VocabularyItem> VocabularyItems { get; set; }
         public DbSet<TranslationAndExample> TranslationsAndExamples { get; set; }
 
         public DatabaseContext(DbContextOptions<DatabaseContext> options) : base(options)
         {
             Database.Migrate();
-          //  Database.EnsureCreated();
+            //  Database.EnsureCreated();
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -24,7 +25,15 @@ namespace DictionaryEditorDb
             modelBuilder.Entity<TranslationAndExample>()
             .HasKey(e => new { e.Word1Id, e.Word2Id });
 
-          
+            modelBuilder.Entity<TagsValue>()
+                .HasOne(tv => tv.VocabularyItem)
+                .WithOne(vi => vi.TagsValue)
+                .HasForeignKey<VocabularyItem>(vi => vi.TagsValueId);
+
+            modelBuilder.Entity<VocabularyItem>()
+                .HasOne(vi => vi.Word)
+                .WithOne(w => w.VocabularyItem)
+                .HasForeignKey<Word>(w => w.VocabularyItemId);
 
             modelBuilder.Entity<Language>().HasData(new List<Language>()
             {
@@ -40,20 +49,7 @@ namespace DictionaryEditorDb
                 new Tag("падеж"),
                 new Tag("число"),
             });
-  base.OnModelCreating(modelBuilder);
-            //    modelBuilder.Entity<Product>().HasData(new List<Product>()
-            //    {
-
-            //            new Product("Евгений Онегин", "Александр Сергеевич Пушкин", 250, "Описание книги","/images/img1.png"),
-            //            new Product("Грозовой Перевал", "Эмили Бронте", 250, "Описание книги","/images/img0.png"),
-            //            new Product("Евгения Гранде", "Оноре де Бальзак", 250,"Описание книги", "/images/img2.png"),
-            //            new Product("История с кладбищем", "Нил Гейман", 250,"Описание книги", "/images/img3.png"),
-            //            new Product("Евгений Онегин", "Александр Сергеевич Пушкин", 250,"Описание книги", "/images/img1.png"),
-            //            new Product("Грозовой Перевал", "Эмили Бронте", 250,"Описание книги", "/images/img0.png"),
-            //            new Product("Евгения Гранде", "Оноре де Бальзак", 250,"Описание книги", "/images/img2.png"),
-            //            new Product("История с кладбищем", "Нил Гейман", 250,"Описание книги", "/images/img3.png"),
-
-            //    });
+            base.OnModelCreating(modelBuilder);
         }
     }
 }
