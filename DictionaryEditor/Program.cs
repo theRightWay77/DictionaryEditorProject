@@ -8,6 +8,7 @@ builder.Services.AddControllersWithViews();
 
 string connection = builder.Configuration.GetConnectionString("dictionaryProject");
 builder.Services.AddDbContext<DatabaseContext>(options => options.UseSqlServer(connection));
+builder.Services.AddTransient<TagsValueRepository>();
 
 var app = builder.Build();
 

@@ -1,12 +1,12 @@
 ﻿
-<form>
+<form method="post">
         <label for="word">Введите слово:</label>
-        <input type="text" id="word" name="word" required><br><br>
+        <input type="text" id="word" name="value" required><br><br>
 
         <label for="tag">Выберите тег:</label>
         <select id="tag" name="tag" onchange="showTagValues()" required>
             <option value="">--Выберите тег--</option>
-            <option value="part_of_speech">Часть речи</option>
+            <option value="partOfSpeech">Часть речи</option>
             <option value="gender">Род</option>
             <option value="tense">Время</option>
             <option value="case">Падеж</option>
@@ -14,19 +14,21 @@
         </select><br><br>
 
         <div id="tag-values" style="display: none;">
-            <label for="tag_value">Выберите значение для тега:</label>
-            <select id="tag_value" name="tag_value" required>
+            <label for="tagValue">Выберите значение для тега:</label>
+            <select id="tagValue" name="tagValue" required>
                 <!-- Значения будут динамически добавлены через JavaScript -->
             </select><br><br>
         </div>
 
-        <button type="submit">Отправить</button>
+        <button type="submit" asp-controller="Home" asp-action="AddWord">Отправить</button>
     </form>
+
+
 <script>
     function showTagValues() {
         var tag = document.getElementById("tag").value;
         var tagValuesDiv = document.getElementById("tag-values");
-        var tagValueSelect = document.getElementById("tag_value");
+        var tagValueSelect = document.getElementById("tagValue");
 
         // Очистить предыдущие значения
         tagValueSelect.innerHTML = "";
@@ -41,7 +43,7 @@
 
         // Добавить значения для выбранного тега
         var options = [];
-        if (tag === "part_of_speech") {
+        if (tag === "partOfSpeech") {
             options = ["Существительное", "Глагол", "Прилагательное", "Наречие"];
         } else if (tag === "gender") {
             options = ["Мужской", "Женский", "Средний"];
