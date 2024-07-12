@@ -57,7 +57,7 @@ namespace DictionaryEditorDb
                 new Tag("partOfSpeech"){Id = Guid.Parse("e1260d2a-e7de-4a22-bd57-622ba0bf4c4f")},
                 new Tag("gender"){Id = Guid.Parse("c9ecd2db-0a26-4070-927f-71bfb8a80b81")},
                 new Tag("tense"){Id = Guid.Parse("45c21b89-2c3d-46bd-8c51-48e736d9ba7e")},
-                new Tag("case"){Id = Guid.Parse("80a5341a-431b-49f0-858f-86feccc457b5")},
+              //  new Tag("case"){Id = Guid.Parse("80a5341a-431b-49f0-858f-86feccc457b5")},
                 new Tag("number"){Id = Guid.Parse("8403879b-267e-4694-8b1e-f2b31fb058c0")},
             });
 
@@ -67,15 +67,15 @@ namespace DictionaryEditorDb
                 {
                     Id = Guid.Parse("ce733542-8353-4ab0-8729-7cfdaa621c69"),
                     TagId = Guid.Parse("e1260d2a-e7de-4a22-bd57-622ba0bf4c4f"), 
-                    Value = "Существительное"
+                    Value = "существительное"
                 },
-                new TagsValue(){ Id = Guid.Parse("d8e694f5-0d72-4845-be4c-8de15bb5773e"),TagId = Guid.Parse("e1260d2a-e7de-4a22-bd57-622ba0bf4c4f"), Value = "verb"},
-                new TagsValue(){ Id = Guid.Parse("6d1027e4-3540-4ee9-ad67-dd84b0b1e5f2"),TagId = Guid.Parse("e1260d2a-e7de-4a22-bd57-622ba0bf4c4f"), Value = "adjective"},
-                new TagsValue(){ Id = Guid.Parse("a8243201-9fe8-45ff-82d1-211086c049e0"),TagId = Guid.Parse("e1260d2a-e7de-4a22-bd57-622ba0bf4c4f"), Value = "adverb"},
+                new TagsValue(){ Id = Guid.Parse("d8e694f5-0d72-4845-be4c-8de15bb5773e"),TagId = Guid.Parse("e1260d2a-e7de-4a22-bd57-622ba0bf4c4f"), Value = "Глагол"},
+                new TagsValue(){ Id = Guid.Parse("6d1027e4-3540-4ee9-ad67-dd84b0b1e5f2"),TagId = Guid.Parse("e1260d2a-e7de-4a22-bd57-622ba0bf4c4f"), Value = "Прилагательное"},
+                new TagsValue(){ Id = Guid.Parse("a8243201-9fe8-45ff-82d1-211086c049e0"),TagId = Guid.Parse("e1260d2a-e7de-4a22-bd57-622ba0bf4c4f"), Value = "Наречие"},
 
-                new TagsValue(){ Id = Guid.Parse("2b87e731-5927-428d-a995-3146160f33ad"),TagId = Guid.Parse("c9ecd2db-0a26-4070-927f-71bfb8a80b81"), Value = "male"},
-                new TagsValue(){ Id = Guid.Parse("1c57ae51-646f-4147-a428-fd6bef86c760"),TagId = Guid.Parse("c9ecd2db-0a26-4070-927f-71bfb8a80b81"), Value = "female"},
-                new TagsValue(){ Id = Guid.Parse("de073eaf-d3f5-47e3-8f37-59338fe14b2f"),TagId = Guid.Parse("c9ecd2db-0a26-4070-927f-71bfb8a80b81"), Value = "middle"},
+                new TagsValue(){ Id = Guid.Parse("2b87e731-5927-428d-a995-3146160f33ad"),TagId = Guid.Parse("c9ecd2db-0a26-4070-927f-71bfb8a80b81"), Value = "Мужской"},
+                new TagsValue(){ Id = Guid.Parse("1c57ae51-646f-4147-a428-fd6bef86c760"),TagId = Guid.Parse("c9ecd2db-0a26-4070-927f-71bfb8a80b81"), Value = "Женский"},
+                new TagsValue(){ Id = Guid.Parse("de073eaf-d3f5-47e3-8f37-59338fe14b2f"),TagId = Guid.Parse("c9ecd2db-0a26-4070-927f-71bfb8a80b81"), Value = "Средний"},
 
                 new TagsValue(){ Id = Guid.Parse("78071fbb-1f19-46a3-a458-e77e906bc4ef"),TagId = Guid.Parse("45c21b89-2c3d-46bd-8c51-48e736d9ba7e"), Value = "past"},
                 new TagsValue(){ Id = Guid.Parse("f88a7c76-e882-4dce-9024-9f18e911c34a"),TagId = Guid.Parse("45c21b89-2c3d-46bd-8c51-48e736d9ba7e"), Value = "present"},
