@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DictionaryEditorDb.Migrations
 {
     [DbContext(typeof(DatabaseContext))]
-    [Migration("20240710120504_Init")]
-    partial class Init
+    [Migration("20240710153842_start3")]
+    partial class start3
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -42,12 +42,12 @@ namespace DictionaryEditorDb.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("317cf0d7-7981-4857-8f5b-1cfe8df1e931"),
+                            Id = new Guid("66be7803-143c-4353-91f6-1642b3cab3a1"),
                             Value = "Russian"
                         },
                         new
                         {
-                            Id = new Guid("1d1ed636-5eff-450d-856d-28b20cfac3e5"),
+                            Id = new Guid("3e53afc7-71e5-4dc5-8d6a-87a2ce5031bd"),
                             Value = "Ossetian"
                         });
                 });
@@ -69,28 +69,28 @@ namespace DictionaryEditorDb.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("f53ac2d4-a217-42f1-8dab-0f37a9a51526"),
-                            Value = "часть речи"
+                            Id = new Guid("e1260d2a-e7de-4a22-bd57-622ba0bf4c4f"),
+                            Value = "partOfSpeech"
                         },
                         new
                         {
-                            Id = new Guid("e1c8ab6d-e05c-4bf2-8287-a5f48ab83549"),
-                            Value = "род"
+                            Id = new Guid("c9ecd2db-0a26-4070-927f-71bfb8a80b81"),
+                            Value = "gender"
                         },
                         new
                         {
-                            Id = new Guid("562764bb-8ebc-40f6-b517-381efb6e5e24"),
-                            Value = "время"
+                            Id = new Guid("45c21b89-2c3d-46bd-8c51-48e736d9ba7e"),
+                            Value = "tense"
                         },
                         new
                         {
-                            Id = new Guid("e2cba40c-51fe-42c4-a936-465d38de5c66"),
-                            Value = "падеж"
+                            Id = new Guid("80a5341a-431b-49f0-858f-86feccc457b5"),
+                            Value = "case"
                         },
                         new
                         {
-                            Id = new Guid("aaabe949-2a36-4137-a784-aa10b14a9fa8"),
-                            Value = "число"
+                            Id = new Guid("8403879b-267e-4694-8b1e-f2b31fb058c0"),
+                            Value = "number"
                         });
                 });
 
@@ -112,6 +112,80 @@ namespace DictionaryEditorDb.Migrations
                     b.HasIndex("TagId");
 
                     b.ToTable("TagsValues");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = new Guid("ce733542-8353-4ab0-8729-7cfdaa621c69"),
+                            TagId = new Guid("e1260d2a-e7de-4a22-bd57-622ba0bf4c4f"),
+                            Value = "Существительное"
+                        },
+                        new
+                        {
+                            Id = new Guid("d8e694f5-0d72-4845-be4c-8de15bb5773e"),
+                            TagId = new Guid("e1260d2a-e7de-4a22-bd57-622ba0bf4c4f"),
+                            Value = "verb"
+                        },
+                        new
+                        {
+                            Id = new Guid("6d1027e4-3540-4ee9-ad67-dd84b0b1e5f2"),
+                            TagId = new Guid("e1260d2a-e7de-4a22-bd57-622ba0bf4c4f"),
+                            Value = "adjective"
+                        },
+                        new
+                        {
+                            Id = new Guid("a8243201-9fe8-45ff-82d1-211086c049e0"),
+                            TagId = new Guid("e1260d2a-e7de-4a22-bd57-622ba0bf4c4f"),
+                            Value = "adverb"
+                        },
+                        new
+                        {
+                            Id = new Guid("2b87e731-5927-428d-a995-3146160f33ad"),
+                            TagId = new Guid("c9ecd2db-0a26-4070-927f-71bfb8a80b81"),
+                            Value = "male"
+                        },
+                        new
+                        {
+                            Id = new Guid("1c57ae51-646f-4147-a428-fd6bef86c760"),
+                            TagId = new Guid("c9ecd2db-0a26-4070-927f-71bfb8a80b81"),
+                            Value = "female"
+                        },
+                        new
+                        {
+                            Id = new Guid("de073eaf-d3f5-47e3-8f37-59338fe14b2f"),
+                            TagId = new Guid("c9ecd2db-0a26-4070-927f-71bfb8a80b81"),
+                            Value = "middle"
+                        },
+                        new
+                        {
+                            Id = new Guid("78071fbb-1f19-46a3-a458-e77e906bc4ef"),
+                            TagId = new Guid("45c21b89-2c3d-46bd-8c51-48e736d9ba7e"),
+                            Value = "past"
+                        },
+                        new
+                        {
+                            Id = new Guid("f88a7c76-e882-4dce-9024-9f18e911c34a"),
+                            TagId = new Guid("45c21b89-2c3d-46bd-8c51-48e736d9ba7e"),
+                            Value = "present"
+                        },
+                        new
+                        {
+                            Id = new Guid("b30b749a-35e7-4a7c-8e50-d84c9fcca794"),
+                            TagId = new Guid("45c21b89-2c3d-46bd-8c51-48e736d9ba7e"),
+                            Value = "future"
+                        },
+                        new
+                        {
+                            Id = new Guid("254ea92e-b848-4815-b41b-81dbca1d7ab4"),
+                            TagId = new Guid("8403879b-267e-4694-8b1e-f2b31fb058c0"),
+                            Value = "plural"
+                        },
+                        new
+                        {
+                            Id = new Guid("68d5999f-9d0a-4b5e-80ae-35ca860b8781"),
+                            TagId = new Guid("8403879b-267e-4694-8b1e-f2b31fb058c0"),
+                            Value = "single"
+                        });
                 });
 
             modelBuilder.Entity("DictionaryEditorDb.Models.TranslationAndExample", b =>
@@ -135,7 +209,7 @@ namespace DictionaryEditorDb.Migrations
                     b.ToTable("TranslationsAndExamples");
                 });
 
-            modelBuilder.Entity("DictionaryEditorDb.Models.Vocabulary", b =>
+            modelBuilder.Entity("DictionaryEditorDb.Models.VocabularyItem", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -153,7 +227,7 @@ namespace DictionaryEditorDb.Migrations
 
                     b.HasIndex("WordId");
 
-                    b.ToTable("Vocabulary");
+                    b.ToTable("VocabularyItems");
                 });
 
             modelBuilder.Entity("DictionaryEditorDb.Models.Word", b =>
@@ -179,7 +253,7 @@ namespace DictionaryEditorDb.Migrations
             modelBuilder.Entity("DictionaryEditorDb.Models.TagsValue", b =>
                 {
                     b.HasOne("DictionaryEditorDb.Models.Tag", "Tag")
-                        .WithMany()
+                        .WithMany("TagsValues")
                         .HasForeignKey("TagId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -187,16 +261,16 @@ namespace DictionaryEditorDb.Migrations
                     b.Navigation("Tag");
                 });
 
-            modelBuilder.Entity("DictionaryEditorDb.Models.Vocabulary", b =>
+            modelBuilder.Entity("DictionaryEditorDb.Models.VocabularyItem", b =>
                 {
                     b.HasOne("DictionaryEditorDb.Models.TagsValue", "TagsValue")
-                        .WithMany()
+                        .WithMany("VocabularyItems")
                         .HasForeignKey("TagsValueId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("DictionaryEditorDb.Models.Word", "Word")
-                        .WithMany()
+                        .WithMany("VocabularyItems")
                         .HasForeignKey("WordId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -209,12 +283,32 @@ namespace DictionaryEditorDb.Migrations
             modelBuilder.Entity("DictionaryEditorDb.Models.Word", b =>
                 {
                     b.HasOne("DictionaryEditorDb.Models.Language", "Language")
-                        .WithMany()
+                        .WithMany("Words")
                         .HasForeignKey("LanguageId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.Navigation("Language");
+                });
+
+            modelBuilder.Entity("DictionaryEditorDb.Models.Language", b =>
+                {
+                    b.Navigation("Words");
+                });
+
+            modelBuilder.Entity("DictionaryEditorDb.Models.Tag", b =>
+                {
+                    b.Navigation("TagsValues");
+                });
+
+            modelBuilder.Entity("DictionaryEditorDb.Models.TagsValue", b =>
+                {
+                    b.Navigation("VocabularyItems");
+                });
+
+            modelBuilder.Entity("DictionaryEditorDb.Models.Word", b =>
+                {
+                    b.Navigation("VocabularyItems");
                 });
 #pragma warning restore 612, 618
         }

@@ -1,4 +1,5 @@
 ﻿using DictionaryEditorDb.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace DictionaryEditorDb
 {
@@ -9,11 +10,15 @@ namespace DictionaryEditorDb
         { 
             this.databaseContext = databaseContext;
         }
-      
-        public void AddWord(Word word) 
-        { 
-            databaseContext.Words.Add(word);
-            databaseContext.SaveChanges();
+        public TagsValue TryGetTagsValue(string tagsValue)
+        {
+            return databaseContext.TagsValues
+               // .Include(tv => tv.Tag)
+                .Include(tv => tv.VocabularyItems)
+                .ThenInclude(vi => vi.Word)
+                .ThenInclude(w => w.Language)
+                .FirstOrDefault(x => x.Value == tagsValue);
         }
+       
     }
 }

@@ -4,6 +4,7 @@
     {
         public Guid Id { get; set; }
         public Word Word { get; set; }
+        public Guid WordId { get; set; }
         public TagsValue TagsValue { get; set; }
         public Guid TagsValueId { get; set; }
 

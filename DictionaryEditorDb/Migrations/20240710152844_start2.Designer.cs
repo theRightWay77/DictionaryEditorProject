@@ -4,6 +4,7 @@ using DictionaryEditorDb;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DictionaryEditorDb.Migrations
 {
     [DbContext(typeof(DatabaseContext))]
-    partial class DatabaseContextModelSnapshot : ModelSnapshot
+    [Migration("20240710152844_start2")]
+    partial class start2
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -104,6 +107,9 @@ namespace DictionaryEditorDb.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<Guid>("VocabularyItemId")
+                        .HasColumnType("uniqueidentifier");
+
                     b.HasKey("Id");
 
                     b.HasIndex("TagId");
@@ -115,73 +121,85 @@ namespace DictionaryEditorDb.Migrations
                         {
                             Id = new Guid("ce733542-8353-4ab0-8729-7cfdaa621c69"),
                             TagId = new Guid("e1260d2a-e7de-4a22-bd57-622ba0bf4c4f"),
-                            Value = "Существительное"
+                            Value = "Существительное",
+                            VocabularyItemId = new Guid("00000000-0000-0000-0000-000000000000")
                         },
                         new
                         {
                             Id = new Guid("d8e694f5-0d72-4845-be4c-8de15bb5773e"),
                             TagId = new Guid("e1260d2a-e7de-4a22-bd57-622ba0bf4c4f"),
-                            Value = "verb"
+                            Value = "verb",
+                            VocabularyItemId = new Guid("00000000-0000-0000-0000-000000000000")
                         },
                         new
                         {
                             Id = new Guid("6d1027e4-3540-4ee9-ad67-dd84b0b1e5f2"),
                             TagId = new Guid("e1260d2a-e7de-4a22-bd57-622ba0bf4c4f"),
-                            Value = "adjective"
+                            Value = "adjective",
+                            VocabularyItemId = new Guid("00000000-0000-0000-0000-000000000000")
                         },
                         new
                         {
                             Id = new Guid("a8243201-9fe8-45ff-82d1-211086c049e0"),
                             TagId = new Guid("e1260d2a-e7de-4a22-bd57-622ba0bf4c4f"),
-                            Value = "adverb"
+                            Value = "adverb",
+                            VocabularyItemId = new Guid("00000000-0000-0000-0000-000000000000")
                         },
                         new
                         {
                             Id = new Guid("2b87e731-5927-428d-a995-3146160f33ad"),
                             TagId = new Guid("c9ecd2db-0a26-4070-927f-71bfb8a80b81"),
-                            Value = "male"
+                            Value = "male",
+                            VocabularyItemId = new Guid("00000000-0000-0000-0000-000000000000")
                         },
                         new
                         {
                             Id = new Guid("1c57ae51-646f-4147-a428-fd6bef86c760"),
                             TagId = new Guid("c9ecd2db-0a26-4070-927f-71bfb8a80b81"),
-                            Value = "female"
+                            Value = "female",
+                            VocabularyItemId = new Guid("00000000-0000-0000-0000-000000000000")
                         },
                         new
                         {
                             Id = new Guid("de073eaf-d3f5-47e3-8f37-59338fe14b2f"),
                             TagId = new Guid("c9ecd2db-0a26-4070-927f-71bfb8a80b81"),
-                            Value = "middle"
+                            Value = "middle",
+                            VocabularyItemId = new Guid("00000000-0000-0000-0000-000000000000")
                         },
                         new
                         {
                             Id = new Guid("78071fbb-1f19-46a3-a458-e77e906bc4ef"),
                             TagId = new Guid("45c21b89-2c3d-46bd-8c51-48e736d9ba7e"),
-                            Value = "past"
+                            Value = "past",
+                            VocabularyItemId = new Guid("00000000-0000-0000-0000-000000000000")
                         },
                         new
                         {
                             Id = new Guid("f88a7c76-e882-4dce-9024-9f18e911c34a"),
                             TagId = new Guid("45c21b89-2c3d-46bd-8c51-48e736d9ba7e"),
-                            Value = "present"
+                            Value = "present",
+                            VocabularyItemId = new Guid("00000000-0000-0000-0000-000000000000")
                         },
                         new
                         {
                             Id = new Guid("b30b749a-35e7-4a7c-8e50-d84c9fcca794"),
                             TagId = new Guid("45c21b89-2c3d-46bd-8c51-48e736d9ba7e"),
-                            Value = "future"
+                            Value = "future",
+                            VocabularyItemId = new Guid("00000000-0000-0000-0000-000000000000")
                         },
                         new
                         {
                             Id = new Guid("254ea92e-b848-4815-b41b-81dbca1d7ab4"),
                             TagId = new Guid("8403879b-267e-4694-8b1e-f2b31fb058c0"),
-                            Value = "plural"
+                            Value = "plural",
+                            VocabularyItemId = new Guid("00000000-0000-0000-0000-000000000000")
                         },
                         new
                         {
                             Id = new Guid("68d5999f-9d0a-4b5e-80ae-35ca860b8781"),
                             TagId = new Guid("8403879b-267e-4694-8b1e-f2b31fb058c0"),
-                            Value = "single"
+                            Value = "single",
+                            VocabularyItemId = new Guid("00000000-0000-0000-0000-000000000000")
                         });
                 });
 
@@ -239,6 +257,9 @@ namespace DictionaryEditorDb.Migrations
                     b.Property<string>("Value")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<Guid>("VocabularyItemId")
+                        .HasColumnType("uniqueidentifier");
 
                     b.HasKey("Id");
 

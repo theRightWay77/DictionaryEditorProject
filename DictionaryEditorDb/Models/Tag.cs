@@ -7,9 +7,11 @@
         public List<TagsValue> TagsValues { get; set; }
         public Tag(string value)
         {
-            Id = Guid.NewGuid();
+           // Id = Guid.NewGuid();
             Value = value;
         }
-
+        public Tag()
+        {
+        }
     }
 }

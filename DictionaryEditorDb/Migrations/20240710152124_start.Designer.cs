@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DictionaryEditorDb.Migrations
 {
     [DbContext(typeof(DatabaseContext))]
-    [Migration("20240710124438_Init2")]
-    partial class Init2
+    [Migration("20240710152124_start")]
+    partial class start
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -42,12 +42,12 @@ namespace DictionaryEditorDb.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("51330434-46c7-455b-8836-b47586390250"),
+                            Id = new Guid("66be7803-143c-4353-91f6-1642b3cab3a1"),
                             Value = "Russian"
                         },
                         new
                         {
-                            Id = new Guid("c6fbc850-7a63-4b4f-9433-57327afa9ba1"),
+                            Id = new Guid("3e53afc7-71e5-4dc5-8d6a-87a2ce5031bd"),
                             Value = "Ossetian"
                         });
                 });
@@ -69,28 +69,28 @@ namespace DictionaryEditorDb.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("090d25a3-dfb6-48dc-ae66-6bc0c5475d2b"),
-                            Value = "часть речи"
+                            Id = new Guid("e1260d2a-e7de-4a22-bd57-622ba0bf4c4f"),
+                            Value = "partOfSpeech"
                         },
                         new
                         {
-                            Id = new Guid("34aa3245-af78-40e2-b8d5-7e700efb3468"),
-                            Value = "род"
+                            Id = new Guid("c9ecd2db-0a26-4070-927f-71bfb8a80b81"),
+                            Value = "gender"
                         },
                         new
                         {
-                            Id = new Guid("c79e4d08-bdf7-4568-a8b0-bea092b7eeae"),
-                            Value = "время"
+                            Id = new Guid("45c21b89-2c3d-46bd-8c51-48e736d9ba7e"),
+                            Value = "tense"
                         },
                         new
                         {
-                            Id = new Guid("200a5a2a-5820-488c-ba7e-c574cd1446fb"),
-                            Value = "падеж"
+                            Id = new Guid("80a5341a-431b-49f0-858f-86feccc457b5"),
+                            Value = "case"
                         },
                         new
                         {
-                            Id = new Guid("6fc6cab5-cb9c-497f-87de-0ec6e66b7144"),
-                            Value = "число"
+                            Id = new Guid("8403879b-267e-4694-8b1e-f2b31fb058c0"),
+                            Value = "number"
                         });
                 });
 
@@ -115,6 +115,92 @@ namespace DictionaryEditorDb.Migrations
                     b.HasIndex("TagId");
 
                     b.ToTable("TagsValues");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = new Guid("ce733542-8353-4ab0-8729-7cfdaa621c69"),
+                            TagId = new Guid("e1260d2a-e7de-4a22-bd57-622ba0bf4c4f"),
+                            Value = "Существительное",
+                            VocabularyItemId = new Guid("00000000-0000-0000-0000-000000000000")
+                        },
+                        new
+                        {
+                            Id = new Guid("d8e694f5-0d72-4845-be4c-8de15bb5773e"),
+                            TagId = new Guid("e1260d2a-e7de-4a22-bd57-622ba0bf4c4f"),
+                            Value = "verb",
+                            VocabularyItemId = new Guid("00000000-0000-0000-0000-000000000000")
+                        },
+                        new
+                        {
+                            Id = new Guid("6d1027e4-3540-4ee9-ad67-dd84b0b1e5f2"),
+                            TagId = new Guid("e1260d2a-e7de-4a22-bd57-622ba0bf4c4f"),
+                            Value = "adjective",
+                            VocabularyItemId = new Guid("00000000-0000-0000-0000-000000000000")
+                        },
+                        new
+                        {
+                            Id = new Guid("a8243201-9fe8-45ff-82d1-211086c049e0"),
+                            TagId = new Guid("e1260d2a-e7de-4a22-bd57-622ba0bf4c4f"),
+                            Value = "adverb",
+                            VocabularyItemId = new Guid("00000000-0000-0000-0000-000000000000")
+                        },
+                        new
+                        {
+                            Id = new Guid("2b87e731-5927-428d-a995-3146160f33ad"),
+                            TagId = new Guid("c9ecd2db-0a26-4070-927f-71bfb8a80b81"),
+                            Value = "male",
+                            VocabularyItemId = new Guid("00000000-0000-0000-0000-000000000000")
+                        },
+                        new
+                        {
+                            Id = new Guid("1c57ae51-646f-4147-a428-fd6bef86c760"),
+                            TagId = new Guid("c9ecd2db-0a26-4070-927f-71bfb8a80b81"),
+                            Value = "female",
+                            VocabularyItemId = new Guid("00000000-0000-0000-0000-000000000000")
+                        },
+                        new
+                        {
+                            Id = new Guid("de073eaf-d3f5-47e3-8f37-59338fe14b2f"),
+                            TagId = new Guid("c9ecd2db-0a26-4070-927f-71bfb8a80b81"),
+                            Value = "middle",
+                            VocabularyItemId = new Guid("00000000-0000-0000-0000-000000000000")
+                        },
+                        new
+                        {
+                            Id = new Guid("78071fbb-1f19-46a3-a458-e77e906bc4ef"),
+                            TagId = new Guid("45c21b89-2c3d-46bd-8c51-48e736d9ba7e"),
+                            Value = "past",
+                            VocabularyItemId = new Guid("00000000-0000-0000-0000-000000000000")
+                        },
+                        new
+                        {
+                            Id = new Guid("f88a7c76-e882-4dce-9024-9f18e911c34a"),
+                            TagId = new Guid("45c21b89-2c3d-46bd-8c51-48e736d9ba7e"),
+                            Value = "present",
+                            VocabularyItemId = new Guid("00000000-0000-0000-0000-000000000000")
+                        },
+                        new
+                        {
+                            Id = new Guid("b30b749a-35e7-4a7c-8e50-d84c9fcca794"),
+                            TagId = new Guid("45c21b89-2c3d-46bd-8c51-48e736d9ba7e"),
+                            Value = "future",
+                            VocabularyItemId = new Guid("00000000-0000-0000-0000-000000000000")
+                        },
+                        new
+                        {
+                            Id = new Guid("254ea92e-b848-4815-b41b-81dbca1d7ab4"),
+                            TagId = new Guid("8403879b-267e-4694-8b1e-f2b31fb058c0"),
+                            Value = "plural",
+                            VocabularyItemId = new Guid("00000000-0000-0000-0000-000000000000")
+                        },
+                        new
+                        {
+                            Id = new Guid("68d5999f-9d0a-4b5e-80ae-35ca860b8781"),
+                            TagId = new Guid("8403879b-267e-4694-8b1e-f2b31fb058c0"),
+                            Value = "single",
+                            VocabularyItemId = new Guid("00000000-0000-0000-0000-000000000000")
+                        });
                 });
 
             modelBuilder.Entity("DictionaryEditorDb.Models.TranslationAndExample", b =>
@@ -175,9 +261,6 @@ namespace DictionaryEditorDb.Migrations
 
                     b.HasIndex("LanguageId");
 
-                    b.HasIndex("VocabularyItemId")
-                        .IsUnique();
-
                     b.ToTable("Words");
                 });
 
@@ -200,7 +283,15 @@ namespace DictionaryEditorDb.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
+                    b.HasOne("DictionaryEditorDb.Models.Word", "Word")
+                        .WithMany("VocabularyItems")
+                        .HasForeignKey("TagsValueId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.Navigation("TagsValue");
+
+                    b.Navigation("Word");
                 });
 
             modelBuilder.Entity("DictionaryEditorDb.Models.Word", b =>
@@ -211,15 +302,7 @@ namespace DictionaryEditorDb.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("DictionaryEditorDb.Models.VocabularyItem", "VocabularyItem")
-                        .WithOne("Word")
-                        .HasForeignKey("DictionaryEditorDb.Models.Word", "VocabularyItemId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
                     b.Navigation("Language");
-
-                    b.Navigation("VocabularyItem");
                 });
 
             modelBuilder.Entity("DictionaryEditorDb.Models.Language", b =>
@@ -238,10 +321,9 @@ namespace DictionaryEditorDb.Migrations
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("DictionaryEditorDb.Models.VocabularyItem", b =>
+            modelBuilder.Entity("DictionaryEditorDb.Models.Word", b =>
                 {
-                    b.Navigation("Word")
-                        .IsRequired();
+                    b.Navigation("VocabularyItems");
                 });
 #pragma warning restore 612, 618
         }

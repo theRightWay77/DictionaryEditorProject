@@ -5,7 +5,12 @@
         public Guid Id { get; set; }
         public string Value { get; set; }
         public Language Language { get; set; }
-        public VocabularyItem VocabularyItem { get; set; }
-        public Guid VocabularyItemId { get; set; }
+        public List<VocabularyItem> VocabularyItems { get; set; } = new List<VocabularyItem>();
+        public Word(string value)
+        {
+            Id = Guid.NewGuid();
+            Value = value;      
+            
+        }
     }
 }
